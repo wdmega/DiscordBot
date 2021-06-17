@@ -1,13 +1,14 @@
 // Connect with discord.js to get all features from the framework
 // and able us to use discord comunicate with our node_modules
 const Discord = require('discord.js');
+require('dotenv').config();
 
 // Here we are creating our new discord bot as a client
 const client = new Discord.Client();
 
 // The Prefix is what we will use as reference to our bot read what we say
 // and if what we said is to he
-const {prefix, token} = require('./config.json');
+const {prefix} = require('./config.json');
 
 // fs allow us to get in other JS files
 const fs = require('fs');
@@ -84,4 +85,4 @@ client.on('message', message => {
 
 // Login/giving acesse our discord bot
 // OBS: Try to let it at the very end of the main file.
-client.login(token);
+client.login(process.env.DISCORD_BOT_TOKEN);
